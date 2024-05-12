@@ -34,15 +34,38 @@ import Bell from 'vue-material-design-icons/Bell.vue'
 
 	<!-- SIDE NAV: START -->
 	<div id="SideNav" class="fixed w-[240px] bg-[#191922] h-[100vh] border-r border-r-[#32323D] ">
-
+		<!-- Logo: START -->
 		<div class="pl-6 pt-3 cursor-pointer w-full">
 			<RouterLink class="text-white" to="/">
 				Deezel
 			</RouterLink>
 		</div>
-
+		<!-- Logo: END -->
+		<div class="mt-[56px]">
+			<!-- Menu section : START -->
+			///Menu section
+			<!-- Menu section : END -->
+			<!-- Categories section : START -->
+			<div class="text-[#A2A2AD] font-light text-[12px] pl-[62px] mt-[25px]">
+				<div class="py-[9px] hover:text-[#EF5465] curdor-pointer">
+					Favorite tracks
+				</div>
+				<div class="py-[9px] hover:text-[#EF5465] cursor-pointer">
+					Playlist
+				</div>
+				<div class="py-[9px] hover:text-[#EF5465] cursor-pointer">
+					Albums
+				</div>
+				<div class="py-[9px] hover:text-[#EF5465] cursor-pointer">
+					Artists
+				</div>
+				<div class="py-[9px] hover:text-[#EF5465] cursor-pointer">
+					Podcasts
+				</div>
+			</div>
+			<!-- Categories section : END -->
+		</div>
 	</div>
 	<!-- SIDE NAV: END -->
-
 	<!-- <router-view /> -->
 </template>
