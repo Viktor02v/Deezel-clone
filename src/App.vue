@@ -32,6 +32,8 @@ import Bell from 'vue-material-design-icons/Bell.vue'
 	</div>
 	<!-- TOP NAV: END -->
 
+
+
 	<!-- SIDE NAV: START -->
 	<div id="SideNav" class="fixed w-[240px] bg-[#191922] h-[100vh] border-r border-r-[#32323D] ">
 		<!-- Logo: START -->
@@ -67,5 +69,13 @@ import Bell from 'vue-material-design-icons/Bell.vue'
 		</div>
 	</div>
 	<!-- SIDE NAV: END -->
+
+
+
+	<!-- Main content: START -->
+	<div class="fixed w-[calc(100%-240px)] h-[calc(100%-56px)] ml-[240px] mt-[56px] overflow-x-auto">
+		<RouterView />
+	</div>
+	<!-- Main content: END -->
 	<!-- <router-view /> -->
 </template>
