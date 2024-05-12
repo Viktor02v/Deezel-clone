@@ -31,5 +31,18 @@ import Bell from 'vue-material-design-icons/Bell.vue'
 		<!-- Profile section & notifications: END -->
 	</div>
 	<!-- TOP NAV: END -->
+
+	<!-- SIDE NAV: START -->
+	<div id="SideNav" class="fixed w-[240px] bg-[#191922] h-[100vh] border-r border-r-[#32323D] ">
+
+		<div class="pl-6 pt-3 cursor-pointer w-full">
+			<RouterLink class="text-white" to="/">
+				Deezel
+			</RouterLink>
+		</div>
+
+	</div>
+	<!-- SIDE NAV: END -->
+
 	<!-- <router-view /> -->
 </template>
