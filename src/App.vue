@@ -45,10 +45,11 @@ import SideMenuItem from './components/SideMenuItem.vue'
 		<!-- Logo: END -->
 		<div class="mt-[56px]">
 			<!-- Menu section : START -->
-			<SideMenuItem icon-string="music" :icon-size="20" name="Music" page-url="/" />
-			<SideMenuItem icon-string="podcast" :icon-size="20" name="Podcasts" page-url="/" />
-			<SideMenuItem icon-string="explore" :icon-size="20" name="Explore" page-url="/" />
-			<SideMenuItem icon-string="favourite" :icon-size="20" name="Favourites" page-url="/" />
+			<SideMenuItem icon-string="music" :iconSize="20" name="Music" page-url="/"/>
+			<SideMenuItem icon-string="podcast" :iconSize="20" name="Podcasts" page-url="/artist"/>
+			<SideMenuItem icon-string="explore" :iconSize="20" name="Explore" page-url="/explore"/>
+			<SideMenuItem icon-string="favourite" :iconSize="20" name="Favourites" page-url="/favourite"/>
+
 			<!-- Menu section : END -->
 			<!-- Categories section : START -->
 			<div class="text-[#A2A2AD] font-light text-[12px] pl-[62px] mt-[25px]">
