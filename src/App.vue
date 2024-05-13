@@ -39,7 +39,7 @@ import Bell from 'vue-material-design-icons/Bell.vue'
 		<!-- Logo: START -->
 		<div class="pl-6 pt-3 cursor-pointer w-full">
 			<RouterLink class="text-white" to="/">
-				Deezel
+				<img src="/images/deezer-logo.png" width="130">
 			</RouterLink>
 		</div>
 		<!-- Logo: END -->
