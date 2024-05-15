@@ -81,5 +81,4 @@ import SideMenuItem from './components/SideMenuItem.vue'
 		<RouterView />
 	</div>
 	<!-- Main content: END -->
-	<!-- <router-view /> -->
 </template>
