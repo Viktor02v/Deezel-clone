@@ -52,7 +52,7 @@ import MixesInspiredBy from '../components/MixesInspiredBy.vue';
 					image="https://picsum.photos/id/212/300/300"/>
 				</div>
 
-				<div class="xl:block hidden xl:1/3 ">
+				<div class="xl:block hidden xl:w-1/3 ">
 					<MixesInspiredBy class="pb-1.5"
 					text="Bad Life"
 					by="Sigrid"
