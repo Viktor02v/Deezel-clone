@@ -13,7 +13,7 @@ const { category, images, text, to } = toRefs(props)
 
 <template>
 	<div>
-		<RouterLink :to="to" class="relative">
+		<RouterLink :to="to" class="relative" >
 			<div
 				class="flex  justify-center items-center contrast-[2] brightness-[0.87] rounded-md aspect-square overflow-hidden"
 				@mouseenter="isHover = true" @mouseleave="isHover = false">
