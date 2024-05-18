@@ -17,9 +17,11 @@ const { category, images, text, to } = toRefs(props)
 			<div
 				class="flex  justify-center items-center contrast-[2] brightness-[0.87] rounded-md aspect-square overflow-hidden"
 				@mouseenter="isHover = true" @mouseleave="isHover = false">
+				
 				<div
 					:class="isHover ? 'transition ease-in duration-150 bg-opacity-20' : 'transition ease-out duration-150 bg-opacity-5'"
 					class="absolute w-full h-full bg-black z-10 rounded-md" />
+
 				<img class="absolute contrast-[0.55] right-0 top-0 w-1/2" :src="images[0]">
 				<img class="absolute contrast-[0.55] left-0 top-0 w-1/2" :src="images[1]">
 				<img class="absolute contrast-[0.55] right-0 bottom-0 w-1/2" :src="images[2]">

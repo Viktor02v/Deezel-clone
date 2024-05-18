@@ -50,6 +50,7 @@ import MultiArtistSelect from '../components/MultiArtistSelect.vue';
 		</div>
 		<!-- Mixes Section: END -->
 
+		<!-- Artists Section: START -->
 		<div class="px-8 mt-8 min-w-[800px]">
 			<div class="text-white text-xl font-semibold inline-block">
 				Made For You...
@@ -58,23 +59,44 @@ import MultiArtistSelect from '../components/MultiArtistSelect.vue';
 			<div class="py-3"></div>
 
 			<div class="flex  justify-start gap-7">
-				<MultiArtistSelect class="w-1/4 hover:w-1/3 duration-500" category="daily"
+				<MultiArtistSelect class="w-1/4 " category="daily"
 					text="Featuring Bring Me the Horizon, Our Last Night, Bad Omens, The Retaliators" to="/artist"
 					:images="['https://picsum.photos/id/45/300/300', 'https://picsum.photos/id/55/300/300', 'https://picsum.photos/id/54/300/300', 'https://picsum.photos/id/76/300/300']" />
 
-				<MultiArtistSelect class="w-1/4 hover:w-1/3 duration-500" category="training"
+				<MultiArtistSelect class="w-1/4" category="training"
 					text="Featuring Bring Me the Horizon, Our Last Night, Bad Omens, The Retaliators" to="/artist"
 					:images="['https://picsum.photos/id/46/300/300', 'https://picsum.photos/id/56/300/300', 'https://picsum.photos/id/57/300/300', 'https://picsum.photos/id/77/300/300']" />
 
-				<MultiArtistSelect class="w-1/4 hover:w-1/3 duration-500 " category="relax"
+				<MultiArtistSelect class="w-1/4 " category="relax"
 					text="Featuring Bring Me the Horizon, Our Last Night, Bad Omens, The Retaliators" to="/artist"
 					:images="['https://picsum.photos/id/47/300/300', 'https://picsum.photos/id/60/300/300', 'https://picsum.photos/id/58/300/300', 'https://picsum.photos/id/78/300/300']" />
 
-				<MultiArtistSelect class="w-1/4 hover:w-1/3 duration-500" category="drive"
+				<MultiArtistSelect class="w-1/4 " category="drive"
 					text="Featuring Bring Me the Horizon, Our Last Night, Bad Omens, The Retaliators" to="/artist"
 					:images="['https://picsum.photos/id/48/300/300', 'https://picsum.photos/id/59/300/300', 'https://picsum.photos/id/61/300/300', 'https://picsum.photos/id/79/300/300']" />
 			</div>
 		</div>
+		<!-- Artists Section: END -->
 
+		<div class="px-8 mt-8 min-w-[800px]">
+			<div class="py-3"></div>
+
+			<p class="text-center pb-6 text-white text-sm">Unlock flow by selecting your favourite artists for improved
+				recommendations.</p>
+
+			<div class="flex justify-center gap-7">
+				<div class="flex text-white items-center justify-center relative">
+					<img width="100" class=" absolute -left-36 z-0 rounded-full cursor-pointer"
+						src="https://picsum.photos/id/188/300/300">
+					<img width="115" class="  absolute -left-[80px] z-10 rounded-full cursor-pointer"
+						src="https://picsum.photos/id/66/300/300">
+					<img width="160" class="rounded-full z-20 cursor-pointer" src="https://picsum.photos/id/144/300/300">
+					<img width="100" class=" absolute -right-36 z-0 rounded-full cursor-pointer"
+						src="https://picsum.photos/id/141/300/300">
+					<img width="115" class=" absolute -right-[80px] z-10 rounded-full cursor-pointer"
+						src="https://picsum.photos/id/222/300/300">
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
