@@ -7,6 +7,7 @@ import MultiArtistSelect from '../components/MultiArtistSelect.vue';
 
 <template>
 	<div class="max-w-[1500px] mx-auto">
+
 		<!-- Mixes Section: START -->
 		<div class="px-8 mt-8 min-w-[800px] w-full">
 
@@ -78,6 +79,7 @@ import MultiArtistSelect from '../components/MultiArtistSelect.vue';
 		</div>
 		<!-- Artists Section: END -->
 
+		<!-- Favorite Artist Section: START -->
 		<div class="px-8 mt-8 min-w-[800px]">
 			<div class="py-3"></div>
 
@@ -98,5 +100,13 @@ import MultiArtistSelect from '../components/MultiArtistSelect.vue';
 				</div>
 			</div>
 		</div>
+
+		<div class="flex justify-center w-full p-3">
+			<button type="button"
+				class="text-white text-[15px] font-semibold rounded-full bg-[#EF5465] hover:bg-[#d8384a] px-8 py-2 text-center">
+				ADD ARTIST
+			</button>
+		</div>
+		<!-- Favorite Artist Section: END -->
 	</div>
 </template>
