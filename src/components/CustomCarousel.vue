@@ -53,7 +53,8 @@ const slideTo = (val) => {
 				:class="isHoverCategory ? 'text-[#EF5465]' : 'text-[#FFFFFF]'"
 				class="flex items-center font-semibold text-xl cursor-pointer ">
 				{{ category }}
-				<ChevronRight :class="isHoverCategory ? 'text-[#EF5465]' : 'text-[#FFFFFF]'" :size="25" class="mt-1" />
+				<ChevronRight :class="isHoverCategory ? 'text-[#EF5465] opacity-100' : 'text-[#FFFFFF]'" :size="25"
+					class="mt-1 opacity-0" />
 			</RouterLink>
 			<div class="px-2"></div>
 		</div>
