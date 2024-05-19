@@ -1,8 +1,29 @@
 <script setup>
+import { ref, onMounted } from 'vue';
 import MixesInspiredBy from '../components/MixesInspiredBy.vue';
 import MultiArtistSelect from '../components/MultiArtistSelect.vue';
 import CustomCarousel from '../components/CustomCarousel.vue';
-import SliderItem from '../components/SliderItem.vue';
+import MyCarousel from '../components/MyCarousel.vue';
+
+import axios from 'axios';
+
+// For The Carousel Section: START
+const items = ref([])
+
+const fetchItems = async () => {
+	try {
+		const { data } = await axios.get('https://102d0e10dc747001.mokky.dev/items')
+		items.value = data;
+	}
+	catch (error) {
+		console.log(error)
+	}
+}
+
+onMounted(async () => {
+	await fetchItems();
+})
+// For The Carousel Section: END
 
 </script>
 
@@ -126,22 +147,12 @@ import SliderItem from '../components/SliderItem.vue';
 				{ url: 'https://picsum.photos/id/225/300/300', song: 'Complete Mountain Almanac', by: 'Complete Mountain Almanac', releasedOn: '10/02/2023' },
 				{ url: 'https://picsum.photos/id/239/300/300', song: 'Music From Montana Story', by: 'Kevin Morby', releasedOn: '10/02/2023' },
 			]" />
+			<!-- Carousel Section: END -->
 
-			<CustomCarousel class="mt-6" :data="[
-				{ url: 'https://picsum.photos/id/90/300/300', song: 'Punk Lines', by: 'In Flames', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/123/300/300', song: 'Red Fusion', by: 'Delain', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/168/300/300', song: 'Crazy Games', by: 'Distant', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/131/300/300', song: 'Shadows Of Magnet', by: 'Klone', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/149/300/300', song: 'Change Of Moves', by: 'You Me At Six', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/151/300/300', song: 'State Of Secrets', by: 'Paramore', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/167/300/300', song: 'Rainbow In Dream', by: 'Pierce The Veil', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/193/300/300', song: 'Dream Kisses', by: 'In The Brian Jonestown Massacre', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/201/300/300', song: 'A Lovers]s Headlight', by: 'Black Belt Eagle Scout', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/221/300/300', song: 'Second Feelings', by: 'SYML', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/223/300/300', song: 'Serial Choices', by: 'Complete Mountain Almanac', releasedOn: '10/02/2023' },
-				{ url: 'https://picsum.photos/id/238/300/300', song: 'Teenage Hysteria', by: 'Kevin Morby', releasedOn: '10/02/2023' },
-			]" />
+			<!-- My Carousel Section: START -->
+			<MyCarousel :items="items" class="mt-6" />
+			<!-- My Carousel Section: END -->
 		</div>
-		<!-- Carousel Section: END -->
+
 	</div>
 </template>
