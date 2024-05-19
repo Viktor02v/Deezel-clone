@@ -2,6 +2,7 @@
 import MixesInspiredBy from '../components/MixesInspiredBy.vue';
 import MultiArtistSelect from '../components/MultiArtistSelect.vue';
 import CustomCarousel from '../components/CustomCarousel.vue';
+import SliderItem from '../components/SliderItem.vue';
 
 </script>
 
