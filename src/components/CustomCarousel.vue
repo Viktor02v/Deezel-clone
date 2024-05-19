@@ -38,7 +38,16 @@ const slideTo = (val) => {
 </script>
 
 <template>
-	<div>
+	<div class="relative">
+		<div>
+			<button @click="slideTo(false)" class="absolute z-50 top-[40%] -left-1 rounded-full p-2">
+				<ChevronLeft fillColor="#FFFFFF" :size="30" />
+			</button>
+
+			<button @click="slideTo(true)" class="absolute rounded-full top-[40%] -right-1 p-2 ">
+				<ChevronRight fillColor="#FFFFFF" :size="30" />
+			</button>
+		</div>
 		<div class="flex justify-between pb-5 ml-8 mr-6">
 			<RouterLink to="/artist" @mouseenter="isHoverCategory = true" @mouseleave="isHoverCategory = false"
 				:class="isHoverCategory ? 'text-[#EF5465]' : 'text-[#FFFFFF]'"
@@ -46,24 +55,12 @@ const slideTo = (val) => {
 				{{ category }}
 				<ChevronRight :class="isHoverCategory ? 'text-[#EF5465]' : 'text-[#FFFFFF]'" :size="25" class="mt-1" />
 			</RouterLink>
-
-			<div class="flex items-center">
-				<button @click="slideTo(false)" class="rounded-full p-2 hover:bg-[#2b2b2b] ">
-					<ChevronLeft fillColor="#FFFFFF" :size="30" />
-				</button>
-
-				<div class="px-2"></div>
-
-				<button @click="slideTo(true)" class="rounded-full p-2 hover:bg-[#2b2b2b] ">
-					<ChevronRight fillColor="#FFFFFF" :size="30" />
-				</button>
-			</div>
+			<div class="px-2"></div>
 		</div>
-
 		<Carousel ref="carousel" v-model="currentSlide" :items-to-scroll="4" :items-to-show="4" :transition="800"
 			snap-align="start" class="mr-8">
 			<Slide v-for="slide in data" :key="slide" class="flex items-baseline">
-				<SliderItem :slide="slide"/>
+				<SliderItem :slide="slide" />
 			</Slide>
 		</Carousel>
 	</div>
