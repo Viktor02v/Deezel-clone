@@ -1,0 +1,71 @@
+<script setup>
+import { toRefs, ref } from 'vue'
+import { RouterLink } from 'vue-router'
+
+import SliderItemForHighlights from './SliderItemForHighlights.vue'
+
+import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
+import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
+
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide } from 'vue3-carousel'
+
+let currentSlide = ref(0)
+let isHoverCategory = ref(false)
+
+const props = defineProps({ category: String, data: Array })
+const { category, data } = toRefs(props)
+
+const slideTo = (val) => {
+	if (val && currentSlide.value <= 7) {
+
+		let res = currentSlide.value + 4
+		if (res <= 12) {
+			currentSlide.value = currentSlide.value + 4
+		} else if (res > 12) {
+			currentSlide.value = 12
+		}
+	} else if (!val) {
+
+		let res = currentSlide.value - 4
+		if (res > 0) {
+			currentSlide.value = currentSlide.value - 4
+		} else if (res < 1) {
+			currentSlide.value = 0
+		}
+	}
+}
+</script>
+
+<template>
+	<div class="relative">
+		<div class="flex justify-between pb-5 ml-8 mr-6">
+			<RouterLink to="/artist" @mouseenter="isHoverCategory = true" @mouseleave="isHoverCategory = false"
+				:class="isHoverCategory ? 'text-[#EF5465]' : 'text-[#FFFFFF]'"
+				class="flex items-center font-semibold text-xl cursor-pointer ">
+				{{ category }}
+				<ChevronRight :class="isHoverCategory ? 'text-[#EF5465] opacity-100' : 'text-[#FFFFFF]'" :size="25"
+					class="mt-1 opacity-0" />
+			</RouterLink>
+
+			<div class="px-2">
+
+				<div class="flex gap-2 items-center">
+					<button @click="slideTo(false)" class="rounded-full hover:bg-gray-700 hover:bg-opacity-30 bg-gray-700  bg-opacity-10 p-2">
+						<ChevronLeft fillColor="#FFFFFF" :size="30" />
+					</button>
+
+					<button @click="slideTo(true)" class="rounded-full hover:bg-gray-700 hover:bg-opacity-30  bg-gray-700  bg-opacity-10 p-2">
+						<ChevronRight fillColor="#FFFFFF" :size="30" />
+					</button>
+				</div>
+			</div>
+		</div>
+		<Carousel ref="carousel" v-model="currentSlide" :items-to-scroll="4" :items-to-show="4" :transition="800"
+			snap-align="start" class="mr-8">
+			<Slide v-for="slide in data" :key="slide" class="flex items-baseline">
+				<SliderItemForHighlights :slide="slide" />
+			</Slide>
+		</Carousel>
+	</div>
+</template>

@@ -5,6 +5,7 @@ import MultiArtistSelect from '../components/MultiArtistSelect.vue';
 import CustomCarousel from '../components/CustomCarousel.vue';
 import MyCarousel from '../components/MyCarousel.vue';
 import Highlights from '../components/Highlights.vue';
+import CarouselForHighlights from '../components/CarouselForHighlights.vue';
 
 import axios from 'axios';
 
@@ -179,7 +180,7 @@ onMounted(async () => {
 			</div>
 
 			<div class="mt-8 min-w-[800px]">
-				<CustomCarousel category="Popular Playlists" :data="[
+				<CarouselForHighlights category="Popular Playlists" :data="[
 					{ url: 'https://picsum.photos/id/401/300/300', song: 'Foregone', by: 'In Flames', releasedOn: '10/02/2023' },
 					{ url: 'https://picsum.photos/id/402/300/300', song: 'Dark Waters', by: 'Delain', releasedOn: '10/02/2023' },
 					{ url: 'https://picsum.photos/id/403/300/300', song: 'Heritage', by: 'Distant', releasedOn: '10/02/2023' },
@@ -210,7 +211,7 @@ onMounted(async () => {
 			</div>
 
 			<div class="mt-8 min-w-[800px]">
-				<CustomCarousel category="New releases for you" :data="[
+				<CarouselForHighlights category="New releases for you" :data="[
 					{ url: 'https://picsum.photos/id/401/300/300', song: 'Foregone', by: 'In Flames', releasedOn: '10/02/2023' },
 					{ url: 'https://picsum.photos/id/402/300/300', song: 'Dark Waters', by: 'Delain', releasedOn: '10/02/2023' },
 					{ url: 'https://picsum.photos/id/403/300/300', song: 'Heritage', by: 'Distant', releasedOn: '10/02/2023' },
