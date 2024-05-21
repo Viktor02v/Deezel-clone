@@ -4,10 +4,11 @@ import MixesInspiredBy from '../components/MixesInspiredBy.vue';
 import MultiArtistSelect from '../components/MultiArtistSelect.vue';
 import CustomCarousel from '../components/CustomCarousel.vue';
 import MyCarousel from '../components/MyCarousel.vue';
+import Highlights from '../components/Highlights.vue';
 
 import axios from 'axios';
 
-// For The Carousel Section: START
+// For  Carousel Section: START
 const items = ref([])
 
 const fetchItems = async () => {
@@ -23,7 +24,7 @@ const fetchItems = async () => {
 onMounted(async () => {
 	await fetchItems();
 })
-// For The Carousel Section: END
+// For  Carousel Section: END
 
 </script>
 
@@ -73,6 +74,7 @@ onMounted(async () => {
 		</div>
 		<!-- Mixes Section: END -->
 
+
 		<!-- Artists Section: START -->
 		<div class="px-8 mt-8 min-w-[800px]">
 			<div class="text-white text-xl font-semibold inline-block">
@@ -100,6 +102,7 @@ onMounted(async () => {
 			</div>
 		</div>
 		<!-- Artists Section: END -->
+
 
 		<!-- Favorite Artist Section: START -->
 		<div class="px-8 mt-8 min-w-[800px]">
@@ -131,6 +134,7 @@ onMounted(async () => {
 		</div>
 		<!-- Favorite Artist Section: END -->
 
+
 		<!-- Carousel Section: START -->
 		<div class="mt-8 min-w-[800px]">
 			<CustomCarousel category="New releases for you" :data="[
@@ -147,12 +151,83 @@ onMounted(async () => {
 				{ url: 'https://picsum.photos/id/225/300/300', song: 'Complete Mountain Almanac', by: 'Complete Mountain Almanac', releasedOn: '10/02/2023' },
 				{ url: 'https://picsum.photos/id/239/300/300', song: 'Music From Montana Story', by: 'Kevin Morby', releasedOn: '10/02/2023' },
 			]" />
-			<!-- Carousel Section: END -->
+
 
 			<!-- My Carousel Section: START -->
 			<MyCarousel :items="items" class="mt-6" />
 			<!-- My Carousel Section: END -->
 		</div>
+		<!-- Carousel Section: END  -->
 
+
+		<!--Highlights Section: START  -->
+		<div class="mt-8 min-w-[800px]">
+			<div class="px-8 text-white text-xl font-semibold inline-block">
+				Highlights
+			</div>
+
+			<div class="py-3"></div>
+
+			<div class="px-8 flex items-center gap-8">
+				<div class="rounded-lg w-1/2">
+					<Highlights by="Some Artist 1" song="Awsome Song For You" image="https://picsum.photos/id/177/800/300" />
+				</div>
+
+				<div class="rounded-lg w-1/2">
+					<Highlights by="Some Artist 2" song="Awsome Song For You" image="https://picsum.photos/id/16/800/300" />
+				</div>
+			</div>
+
+			<div class="mt-8 min-w-[800px]">
+				<CustomCarousel category="Popular Playlists" :data="[
+					{ url: 'https://picsum.photos/id/401/300/300', song: 'Foregone', by: 'In Flames', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/402/300/300', song: 'Dark Waters', by: 'Delain', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/403/300/300', song: 'Heritage', by: 'Distant', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/404/300/300', song: 'Meanwhile', by: 'Klone', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/405/300/300', song: 'Truth Decay', by: 'You Me At Six', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/406/300/300', song: 'This Is Why', by: 'Paramore', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/407/300/300', song: 'The Jaws Of Life', by: 'Pierce The Veil', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/408/300/300', song: 'The Future Is Your Past', by: 'In The Brian Jonestown Massacre', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/409/300/300', song: 'The Land, The Water, The Sky ', by: 'Black Belt Eagle Scout', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/410/300/300', song: 'The Day My Father Died', by: 'SYML', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/411/300/300', song: 'Complete Mountain Almanac', by: 'Complete Mountain Almanac', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/412/300/300', song: 'Music From Montana Story', by: 'Kevin Morby', releasedOn: '10/02/2023' },
+				]" />
+			</div>
+
+			<div class="px-8 text-white my-8 text-xl font-semibold inline-block">
+				Highlights
+			</div>
+
+			<div class="px-8 flex items-center gap-8">
+				<div class=" rounded-lg w-1/2">
+					<Highlights by="Some Artist 3" song="Awsome Song For You" image="https://picsum.photos/id/179/800/300" />
+				</div>
+
+				<div class="rounded-lg w-1/2">
+					<Highlights by="Some Artist 4" song="Awsome Song For You" image="https://picsum.photos/id/19/800/300" />
+				</div>
+			</div>
+
+			<div class="mt-8 min-w-[800px]">
+				<CustomCarousel category="New releases for you" :data="[
+					{ url: 'https://picsum.photos/id/401/300/300', song: 'Foregone', by: 'In Flames', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/402/300/300', song: 'Dark Waters', by: 'Delain', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/403/300/300', song: 'Heritage', by: 'Distant', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/404/300/300', song: 'Meanwhile', by: 'Klone', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/405/300/300', song: 'Truth Decay', by: 'You Me At Six', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/406/300/300', song: 'This Is Why', by: 'Paramore', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/407/300/300', song: 'The Jaws Of Life', by: 'Pierce The Veil', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/408/300/300', song: 'The Future Is Your Past', by: 'In The Brian Jonestown Massacre', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/409/300/300', song: 'The Land, The Water, The Sky ', by: 'Black Belt Eagle Scout', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/410/300/300', song: 'The Day My Father Died', by: 'SYML', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/411/300/300', song: 'Complete Mountain Almanac', by: 'Complete Mountain Almanac', releasedOn: '10/02/2023' },
+					{ url: 'https://picsum.photos/id/412/300/300', song: 'Music From Montana Story', by: 'Kevin Morby', releasedOn: '10/02/2023' },
+				]" />
+			</div>
+		</div>
+
+		<div class="pb-40"></div>
+		<!-- Highlights Section: END -->
 	</div>
 </template>
