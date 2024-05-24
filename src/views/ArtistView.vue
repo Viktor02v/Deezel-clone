@@ -14,6 +14,7 @@ const useSong = useSongStore()
 
 const { isPlaying, currentTrack, currentArtist } = storeToRefs(useSong)
 
+
 const playFunc = () => {
 	if (currentTrack.value) {
 		useSong.playOrPauseThisSong(currentArtist.value, currentTrack.value)
@@ -62,7 +63,49 @@ const playFunc = () => {
 
 		<div class="mt-11"></div>
 
-		
+		<div class="flex justify-between pt-2 min-w-[650px]">
 
+			<ul class="flex items-center justify-start w-full text-gray-400 h-9">
+				<li class="pl-8">
+					<button
+						class="font-light cursor-pointer text-[#bebebe] border-b-2 border-b-[#121216] hover:border-b-[#FFFFFF] pb-[8px] hover:text-[#FFFFFF] ">
+						Discography
+					</button>
+				</li>
+
+				<li class="text-white pl-10">
+					<button class="font-semibold cursor-pointer border-b-2 border-b-[#EF5465] pb-[8px]">
+						Top tracks
+					</button>
+				</li>
+
+				<li class="pl-10">
+					<button
+						class="font-light cursor-pointer text-[#bebebe] border-b-2 border-b-[#121216] hover:border-b-[#FFFFFF] pb-[8px] hover:text-[#FFFFFF] ">
+						Similar artists
+					</button>
+				</li>
+
+				<li class="pl-10">
+					<button
+						class="font-light cursor-pointer text-[#bebebe] border-b-2 border-b-[#121216] hover:border-b-[#FFFFFF] pb-[8px] hover:text-[#FFFFFF] ">
+						Playlists
+					</button>
+				</li>
+
+				<li class="pl-10">
+					<button
+						class="font-light cursor-pointer text-[#bebebe] border-b-2 border-b-[#121216] hover:border-b-[#FFFFFF] pb-[8px] hover:text-[#FFFFFF] ">
+						Bio
+					</button>
+				</li>
+			</ul>
+
+		</div>
 	</div>
+
+	<div class="border-b border-b-[#320d2d]"></div>
+	<div class="mb-10"></div>
+
+	
 </template>
