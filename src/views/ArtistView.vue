@@ -1,4 +1,6 @@
 <script setup>
+import SongRow from '../components/SongRow.vue';
+
 import Magnify from 'vue-material-design-icons/Magnify.vue';
 import Play from 'vue-material-design-icons/Play.vue';
 import Pause from 'vue-material-design-icons/Pause.vue';
@@ -25,6 +27,7 @@ const playFunc = () => {
 </script>
 
 <template>
+	<!-- HEADER SECTION: START -->
 	<div id="HeaderSection" class="max-w-[1500px] mx-auto">
 
 		<div class="flex items-center w-full relative h-full px-8 mt-6 min-w-[650px]">
@@ -46,7 +49,7 @@ const playFunc = () => {
 						</div>
 						<div v-else class="flex items-center">
 							<Pause fillColor="white" :size="20" />
-							<div class="text-white font-bold text-xs  pr-1">Pause</div>
+							<div class="text-white font-bold text-xs  pr-1">PAUSE</div>
 						</div>
 					</button>
 
@@ -95,7 +98,7 @@ const playFunc = () => {
 
 				<li class="pl-10">
 					<button
-						class="font-light cursor-pointer text-[#bebebe] border-b-2 border-b-[#121216] hover:border-b-[#FFFFFF] pb-[8px] hover:text-[#FFFFFF] ">
+						class="font-light cursor-pointer text-[#bebebe] border-b-2 border-b-[#121216] hover:border-b-[#FFFFFF] pb-[8px] hover:text-[#FFFFFF]">
 						Bio
 					</button>
 				</li>
@@ -103,9 +106,38 @@ const playFunc = () => {
 
 		</div>
 	</div>
+	<!--HEADER SECTION: END -->
 
+
+	<!-- BORDER SECTION: START -->
 	<div class="border-b border-b-[#320d2d]"></div>
 	<div class="mb-10"></div>
+	<!-- BORDER SECTION: END -->
 
-	
+
+	<!-- SONG SECTION: START -->
+	<div id="SongSection" class="max-w-[1500px] mx-auto">
+		<div class="pl-8">
+			<div class="text-white font-semibold text-3xl mb-7">Top Tracks</div>
+
+			<div class="flex items-center border border-[#525254] bg-[#23232D] rounded-sm text-[#c9c9c9] w-[300px]">
+				<Magnify fillColor="#9B9BA1" class="px-1" />
+				<input type="text" placeholder="Search within tracks"
+					class="w-full py-[5px] bg-[#23232D] text-sm placeholder-[#7e7e7e] outline-none ring-0 hover:ring-0">
+			</div>
+		</div>
+
+		<div class="mb-4"></div>
+
+		<div class="flex items-center justify-between min-w-[590px] mx-8 border-b border-b-[#302d2d] py-2.5 px-1.5 ">
+			<div class="text-xs font-light text-[#aeaeae]">TRACK</div>
+			<ClockTimeFiveOutline fillColor="#aeaeae" :size="20" />
+		</div>
+
+		<ul class="w-full mx-8 pr-16 min-w-[650px]" v-for="track in artist.tracks" :key="track">
+			<SongRow v-if="track" :track="track" />
+		</ul>
+
+	</div>
+	<!-- SONG SECTION: END -->
 </template>

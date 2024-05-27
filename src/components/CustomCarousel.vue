@@ -59,7 +59,7 @@ const slideTo = (val) => {
 			<div class="px-2"></div>
 		</div>
 		<Carousel ref="carousel" v-model="currentSlide" :items-to-scroll="4" :items-to-show="4" :transition="800"
-			snap-align="start" class="mr-8">
+			snap-align="center" class="mr-8">
 			<Slide v-for="slide in data" :key="slide" class="flex items-baseline">
 				<SliderItem :slide="slide" />
 			</Slide>

@@ -5,69 +5,31 @@
 	"tracks": [
 		 {
 			  "id": 1,
+			  "songCover" : "/images/albumCovers/I don't care.png",
 			  "name": "I Don't Care",
 			  "path": "/songs/apocalyptica-feat_-adam-gontier-i-dont-care.mp3",
 			  "lyrics": false
 		 },
 		 {
 			  "id": 2,
-			  "name": "Solitude",
-			  "path": "/songs/Solitude.mp3",
+			  "songCover" : "/images/albumCovers/New Devide.jpeg",
+			  "name": "New Devide",
+			  "path": "/songs/Linkin Park - New Divide.mp3",
 			  "lyrics": true
 		 },
 		 {
 			  "id": 3,
-			  "name": "Manimal",
-			  "path": "/songs/Manimal.mp3",
+			  "songCover" : "/images/albumCovers/Numb.jpeg",
+			  "name": "Numb",
+			  "path": "/songs/Linkin Park - Numb.mp3",
 			  "lyrics": false
 		 },
 		 {
 			  "id": 4,
-			  "name": "J5",
-			  "path": "/songs/J5.mp3",
-			  "lyrics": false
-		 },
-		 {
-			  "id": 5,
-			  "name": "Throne",
-			  "path": "/songs/Throne.mp3",
+			  "songCover" : "/images/albumCovers/Aerials.jpeg",
+			  "name": "Aerials",
+			  "path": "/songs/System_of_a_Down-Aerials-world74.spcs.bio.mp3",
 			  "lyrics": true
-		 },
-		 {
-			  "id": 6,
-			  "name": "Scarwhores",
-			  "path": "/songs/Scarwhores.mp3",
-			  "lyrics": false
-		 },
-		 {
-			  "id": 7,
-			  "name": "Highschool Funeral",
-			  "path": "/songs/Highschool Funeral.mp3",
-			  "lyrics": false
-		 },
-		 {
-			  "id": 8,
-			  "name": "Get Away",
-			  "path": "/songs/Get Away.mp3",
-			  "lyrics": false
-		 },
-		 {
-			  "id": 9,
-			  "name": "Victims of Chaos",
-			  "path": "/songs/Victims of Chaos.mp3",
-			  "lyrics": false
-		 },
-		 {
-			  "id": 10,
-			  "name": "Neruda",
-			  "path": "/songs/Neruda.mp3",
-			  "lyrics": false
-		 },
-		 {
-			  "id": 11,
-			  "name": "Brother",
-			  "path": "/songs/Brother.mp3",
-			  "lyrics": false
 		 }
 	]
 }

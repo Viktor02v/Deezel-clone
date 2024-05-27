@@ -51,7 +51,7 @@ const slideTo = (val) => {
 			<div class="px-2">
 
 				<div class="flex gap-2 items-center">
-					<button @click="slideTo(false)" class="rounded-full hover:bg-gray-700 hover:bg-opacity-30 bg-gray-700  bg-opacity-10 p-2">
+					<button v-if="currentSlide !== 0" @click="slideTo(false)" class="rounded-full hover:bg-gray-700 hover:bg-opacity-30 bg-gray-700  bg-opacity-10 p-2">
 						<ChevronLeft fillColor="#FFFFFF" :size="30" />
 					</button>
 
