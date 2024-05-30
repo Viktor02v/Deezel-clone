@@ -70,7 +70,7 @@ const openLyrics = (track, artist) => {
 
 				<div @mouseenter="isHoverGif = true" @mouseleave="isHoverGif = false"
 					v-if="isPlaying && track && currentTrack && currentTrack.name === track.name"
-					class="p-1 mt-[2px] ml-[3px] absolute rounded-full bg-white cursor-pointer">
+					class="p-1 mt-[2px] ml-[3px] absolute rounded-full bg-white  cursor-pointer">
 					<img v-if="!isHoverGif" src="/images/audio-wave.gif">
 					<Pause v-if="isHoverGif" :size="25" @click="useSong.playOrPauseSong()" />
 				</div>
