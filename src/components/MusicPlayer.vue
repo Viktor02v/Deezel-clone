@@ -10,7 +10,7 @@ import Plus from 'vue-material-design-icons/Plus.vue'
 import Play from 'vue-material-design-icons/Play.vue'
 import Pause from 'vue-material-design-icons/Pause.vue'
 import SkipBackward from 'vue-material-design-icons/SkipBackward.vue'
-import SkipForvard from 'vue-material-design-icons/SkipForvard.vue'
+import SkipForward from 'vue-material-design-icons/SkipForward.vue'
 import VolumeHigh from 'vue-material-design-icons/VolumeHigh.vue'
 import VolumeMute from 'vue-material-design-icons/VolumeMute.vue'
 
@@ -20,6 +20,7 @@ import uniqolor from 'uniqolor'
 
 import { useSongStore } from '../stores/song'
 import { storeToRefs } from 'pinia'
+import DotsHorizontal from 'vue-material-design-icons/DotsHorizontal.vue'
 
 const useSong = useSongStore()
 const { audio, isPlaying, currentTrack, currentArtist, isLyrics, trackTime, currentVolume } = storeToRefs(useSong)
@@ -65,9 +66,6 @@ onMounted(() => {
 	}
 })
 
-
-
-
 const timeupdate = () => {
 	audio.value.addEventListener('timeupdate', () => {
 		var minutes = Math.floor(audio.value.currentTime / 60);
@@ -95,14 +93,14 @@ watch(() => audio.value, () => {
 })
 
 watch(() => isTrackTimeCurrent.value, (time) => {
-	if(time && time == isTrackTimeTotal.value) {
+	if (time && time == isTrackTimeTotal.value) {
 		useSong.nextSong(currentTrack.value)
 	}
 })
 
 watch(() => currentTrack.value.id, (val) => {
 	randColor.value = uniqolor.random()
-	if(currentTrack.value.lyrics){
+	if (currentTrack.value.lyrics) {
 		isLyrics.value = true
 		return
 	}
@@ -111,8 +109,99 @@ watch(() => currentTrack.value.id, (val) => {
 </script>
 
 <template>
+	<div id="MusicPlayer" v-if="audio"
+		class="fixed flex min-w-[1000px] items-center justify-between bottom-0 w-full z-50 h-[80px] bg-[#23232D] border-t border-t-[#383838] ">
+		<div class="flex items-center w-2/12">
+			<div class="flex items-center justify-center h-[30px] pl-4">
+				<button type="button" class="mx-2 p-2" :disabled="currentTrack.id === 1"
+					:class="{ 'rounded-full hover:bg-[#363636]': currentTrack.id !== 1 }"
+					@click="useSong.prevSong(currentTrack)">
+					<SkipBackward :fillColor="currentTrack.id === 1 ? '#747474' : '#FFFFFF'" :size="25" />
+				</button>
+
+				<button type="button" class="p-2 rounded-full hover:bg-[#363636]"
+					@click="useSong.playOrPauseThisSong(currentArtist, currentTrack)">
+					<Play v-if="!isPlaying" :fillColor="'#FFFFFF'" :size="45" />
+					<Pause v-else :fillColor="'#FFFFFF'" :size="45" />
+				</button>
+
+				<button type="button" class="mx-2 p-2 rounded-full hover:bg-[#363636]"
+					@click="useSong.nextSong(currentTrack)">
+					<SkipForward :fillColor="'#FFFFFF'" :size="25" />
+				</button>
+			</div>
+		</div>
+
+		<div class="mb-2.5 w-full max-w-[50%] mx-10">
+			<div class="flex items-center justify-between pl-1 relative top-1 mx-7">
+				<div class="flex items-center">
+					<div class="bg-[#2E2E39] py-0.5 px-1 text-[10px] text-[#72727D]">Album</div>
+					<div class="text-white text-[14px] font-[300] ml-3">{{ currentTrack.name }}</div>
+					<div class="text-white relative -top-1 left-[6px]">.</div>
+					<div class="text-white text-[14px] font-[300] ml-3">{{ currentArtist.name }}</div>
+				</div>
+
+				<div class="flex items-center">
+					<div class="p-1.5 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer ">
+						<Plus :fillColor="'#FFFFFF'" :size="20" />
+					</div>
+					<div class="p-1.5 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer ">
+						<HeartOutline :fillColor="'#FFFFFF'" :size="20" />
+					</div>
+					<div class="p-1.5 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer ">
+						<Tune :fillColor="'#FFFFFF'" :size="20" />
+					</div>
+				</div>
+			</div>
+
+			<div class="flex items-center  ">
+				<div v-if="isTrackTimeCurrent" class="text-[#8a8a8a] w-10 text-[10px] pr-2 relative  -bottom-[5px]">{{
+					isTrackTimeCurrent }}</div>
+
+				<div ref="seekerContainer" class="w-full relative mt-2 mb-3" @mouseenter="isHover = true
+					" @mouseleave="isHover = false">
+					<input v-model="range" ref="seeker" type="range"
+						class="absolute rounded-full my-[7px] w-full h-0 z-40 apearance-none bg-opacity-100 focus:outline-none cursor-pointer "
+						:class="{ 'rangeDotHidden': !isHover }, { 'rangeDot': isHover }">
+
+					<div class="pointer-events-none rounded-full  absolute z-10 inset-y-0 left-0 w-0 bg-[#2E2E39]"
+						:style="`width: ${range}%; background-color: ${randColor.color};`"
+						:class="isHover ? 'h-[4px] mt-[5px]' : 'h-[2px] mt-[6px]'" />
 
 
+					<div class="absolute z-[-0] inset-y-0 left-0 w-full bg-[#c4c4c4] rounded-full" :class="isHover ? 'h-[4px] mt-[5px]' : 'h-[2px] mt-[6px]'" />
+				</div>
+
+				<div v-if="isTrackTimeTotal" class="text-[#8a8a8a] text-[10px] pl-2 w-10 relative -bottom-[5px]">{{ isTrackTimeTotal }}</div>
+			</div>
+		</div>
+
+		<div class="flex items-center w-1/4 justify-end pr-6">
+
+				<div class="flex items-center">
+					<div class="p-2 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer">
+						<PictureInPictureBottomRight :fillColor="'#FFFFFF'" :size="17" />
+					</div>
+
+					<div class="p-2 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer">
+						<ShuffleVariant :fillColor="'#FFFFFF'" :size="17" />
+					</div>
+
+					<div @mouseenter="isVolumeHover = true" @mouseleave="isVolumeHover = false" 
+					class="relative"
+					>
+					<div class="p-2 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer">
+						<VolumeHigh v-if="currentVolume > 0" class="block" :fillColor="'#FFFFFF'" :size="17" />
+						<VolumeMute v-else class="block" :fillColor="'#FFFFFF'" :size="17" />
+					</div>
+
+					<div v-show="isVolumeHover" class="absolute -top-12 -left-20 p-2 px-4 bg-[#2a2a37] rounded-xl shadow-xl">
+						<MusicPlayerVolume/>
+					</div>
+					</div>
+				</div>
+			</div>
+	</div>
 </template>
 
 <style>

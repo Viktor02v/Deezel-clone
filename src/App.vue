@@ -1,9 +1,25 @@
 <script setup>
+import { onBeforeMount } from 'vue'
 import { RouterView, RouterLink } from 'vue-router'
+
+import SideMenuItem from './components/SideMenuItem.vue'
+import MusicPlayer from './components/MusicPlayer.vue'
+
 
 import Magnify from 'vue-material-design-icons/Magnify.vue'
 import Bell from 'vue-material-design-icons/Bell.vue'
-import SideMenuItem from './components/SideMenuItem.vue'
+
+import { useSongStore } from './stores/song'
+import { storeToRefs } from 'pinia'
+const useSong = useSongStore()
+
+const { isPlaying, currentTrack, isLyrics, trackTime } = storeToRefs(useSong)
+
+onBeforeMount(() => {
+	isPlaying.value = false
+	isLyrics.value = false
+	trackTime.value = '0:00'
+})
 </script>
 
 <template>
@@ -45,10 +61,10 @@ import SideMenuItem from './components/SideMenuItem.vue'
 		<!-- Logo: END -->
 		<div class="mt-[56px]">
 			<!-- Menu section : START -->
-			<SideMenuItem icon-string="music" :iconSize="20" name="Music" page-url="/"/>
-			<SideMenuItem icon-string="podcast" :iconSize="20" name="Podcasts" page-url="/artist"/>
-			<SideMenuItem icon-string="explore" :iconSize="20" name="Explore" page-url="/explore"/>
-			<SideMenuItem icon-string="favourite" :iconSize="20" name="Favourites" page-url="/favourite"/>
+			<SideMenuItem icon-string="music" :iconSize="20" name="Music" page-url="/" />
+			<SideMenuItem icon-string="podcast" :iconSize="20" name="Podcasts" page-url="/artist" />
+			<SideMenuItem icon-string="explore" :iconSize="20" name="Explore" page-url="/explore" />
+			<SideMenuItem icon-string="favourite" :iconSize="20" name="Favourites" page-url="/favourite" />
 
 			<!-- Menu section : END -->
 			<!-- Categories section : START -->
@@ -79,4 +95,5 @@ import SideMenuItem from './components/SideMenuItem.vue'
 		<RouterView />
 	</div>
 	<!-- Main content: END -->
+	<MusicPlayer v-if="currentTrack" />
 </template>
