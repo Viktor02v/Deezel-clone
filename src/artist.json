@@ -6,6 +6,7 @@
 		 {
 			  "id": 1,
 			  "songCover" : "/images/albumCovers/I don't care.png",
+			  "artist": "Apocalyptica",
 			  "name": "I Don't Care",
 			  "path": "/songs/apocalyptica-feat_-adam-gontier-i-dont-care.mp3",
 			  "lyrics": false
@@ -13,6 +14,7 @@
 		 {
 			  "id": 2,
 			  "songCover" : "/images/albumCovers/New Devide.jpeg",
+			  "artist": "Linkin Park",
 			  "name": "New Devide",
 			  "path": "/songs/Linkin Park - New Divide.mp3",
 			  "lyrics": true
@@ -20,6 +22,7 @@
 		 {
 			  "id": 3,
 			  "songCover" : "/images/albumCovers/Numb.jpeg",
+			  "artist": "Linkin Park",
 			  "name": "Numb",
 			  "path": "/songs/Linkin Park - Numb.mp3",
 			  "lyrics": false
@@ -27,6 +30,7 @@
 		 {
 			  "id": 4,
 			  "songCover" : "/images/albumCovers/Aerials.jpeg",
+			  "artist": "System of a Down",
 			  "name": "Aerials",
 			  "path": "/songs/System_of_a_Down-Aerials-world74.spcs.bio.mp3",
 			  "lyrics": true

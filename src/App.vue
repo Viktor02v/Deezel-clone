@@ -4,7 +4,7 @@ import { RouterView, RouterLink } from 'vue-router'
 
 import SideMenuItem from './components/SideMenuItem.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
-
+import SongLyrics from './components/SongLyrics.vue'
 
 import Magnify from 'vue-material-design-icons/Magnify.vue'
 import Bell from 'vue-material-design-icons/Bell.vue'
@@ -95,5 +95,12 @@ onBeforeMount(() => {
 		<RouterView />
 	</div>
 	<!-- Main content: END -->
+
+	<!-- Music player: START -->
 	<MusicPlayer v-if="currentTrack" />
+	<!-- Music player: END -->
+
+	<!-- Lyrics Section: START -->
+	<SongLyrics v-if="isLyrics" :class="{ 'animate_animated animate_slideInUp animate_faster': isLyrics }" />
+	<!-- Lyrics Section: END -->
 </template>

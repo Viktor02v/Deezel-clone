@@ -1,6 +1,8 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue'
 
+import MusicPlayerVolume from './MusicPlayerVolume.vue'
+
 import ShuffleVariant from 'vue-material-design-icons/ShuffleVariant.vue'
 import HeartOutline from 'vue-material-design-icons/HeartOutline.vue'
 import MicrophoneVariant from 'vue-material-design-icons/MicrophoneVariant.vue'
@@ -13,6 +15,7 @@ import SkipBackward from 'vue-material-design-icons/SkipBackward.vue'
 import SkipForward from 'vue-material-design-icons/SkipForward.vue'
 import VolumeHigh from 'vue-material-design-icons/VolumeHigh.vue'
 import VolumeMute from 'vue-material-design-icons/VolumeMute.vue'
+import DotsHorizontal from 'vue-material-design-icons/DotsHorizontal.vue'
 
 import lyrics from '../lyrics.json'
 
@@ -20,8 +23,6 @@ import uniqolor from 'uniqolor'
 
 import { useSongStore } from '../stores/song'
 import { storeToRefs } from 'pinia'
-import DotsHorizontal from 'vue-material-design-icons/DotsHorizontal.vue'
-
 const useSong = useSongStore()
 const { audio, isPlaying, currentTrack, currentArtist, isLyrics, trackTime, currentVolume } = storeToRefs(useSong)
 
@@ -138,7 +139,7 @@ watch(() => currentTrack.value.id, (val) => {
 					<div class="bg-[#2E2E39] py-0.5 px-1 text-[10px] text-[#72727D]">Album</div>
 					<div class="text-white text-[14px] font-[300] ml-3">{{ currentTrack.name }}</div>
 					<div class="text-white relative -top-1 left-[6px]">.</div>
-					<div class="text-white text-[14px] font-[300] ml-3">{{ currentArtist.name }}</div>
+					<div class="text-white text-[14px] font-[300] ml-3">{{ currentTrack.artist }}</div>
 				</div>
 
 				<div class="flex items-center">
@@ -169,38 +170,46 @@ watch(() => currentTrack.value.id, (val) => {
 						:class="isHover ? 'h-[4px] mt-[5px]' : 'h-[2px] mt-[6px]'" />
 
 
-					<div class="absolute z-[-0] inset-y-0 left-0 w-full bg-[#c4c4c4] rounded-full" :class="isHover ? 'h-[4px] mt-[5px]' : 'h-[2px] mt-[6px]'" />
+					<div class="absolute z-[-0] inset-y-0 left-0 w-full bg-[#c4c4c4] rounded-full"
+						:class="isHover ? 'h-[4px] mt-[5px]' : 'h-[2px] mt-[6px]'" />
 				</div>
 
-				<div v-if="isTrackTimeTotal" class="text-[#8a8a8a] text-[10px] pl-2 w-10 relative -bottom-[5px]">{{ isTrackTimeTotal }}</div>
+				<div v-if="isTrackTimeTotal" class="text-[#8a8a8a] text-[10px] pl-2 w-10 relative -bottom-[5px]">{{
+					isTrackTimeTotal }}</div>
 			</div>
 		</div>
 
 		<div class="flex items-center w-1/4 justify-end pr-6">
+			<div class="flex items-center">
+				<div class="p-2 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer">
+					<PictureInPictureBottomRight :fillColor="'#FFFFFF'" :size="17" />
+				</div>
 
-				<div class="flex items-center">
-					<div class="p-2 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer">
-						<PictureInPictureBottomRight :fillColor="'#FFFFFF'" :size="17" />
-					</div>
+				<div class="p-2 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer">
+					<ShuffleVariant :fillColor="'#FFFFFF'" :size="17" />
+				</div>
 
-					<div class="p-2 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer">
-						<ShuffleVariant :fillColor="'#FFFFFF'" :size="17" />
-					</div>
-
-					<div @mouseenter="isVolumeHover = true" @mouseleave="isVolumeHover = false" 
-					class="relative"
-					>
+				<div @mouseenter="isVolumeHover = true" @mouseleave="isVolumeHover = false" class="relative">
 					<div class="p-2 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer">
 						<VolumeHigh v-if="currentVolume > 0" class="block" :fillColor="'#FFFFFF'" :size="17" />
 						<VolumeMute v-else class="block" :fillColor="'#FFFFFF'" :size="17" />
 					</div>
 
-					<div v-show="isVolumeHover" class="absolute -top-12 -left-20 p-2 px-4 bg-[#2a2a37] rounded-xl shadow-xl">
-						<MusicPlayerVolume/>
-					</div>
+					<div v-if="isVolumeHover" class="absolute -top-12 -left-20 p-2 px-4 bg-[#2a2a37] rounded-xl shadow-xl">
+						<MusicPlayerVolume />
 					</div>
 				</div>
+
+				<div class="p-2 ml-2 hover:bg-[#5a5a5a] hover:bg-opacity-50 rounded-full cursor-pointer">
+					<Tune :fillColor="'#FFFFFF'" :size="17" />
+				</div>
 			</div>
+
+			<div class="flex items-center ml-6 border-l border-l-[#363636]">
+				<img class="rounded-sm ml-6" width="28" :src="currentTrack.songCover">
+				<div class="text-sm ml-1.5 text-white font-light">Queue</div>
+			</div>
+		</div>
 	</div>
 </template>
 

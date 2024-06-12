@@ -88,16 +88,16 @@ const openLyrics = (track, artist) => {
 		<div class="flex items-center">
 
 			<div v-if="track.lyrics" @click="openLyrics(track, artist)"
-				class="rotate-45 rounded-full p-1.5 mr-3 hover:bg-[#979797] hover:bg-opacity-20">
+				class="rotate-45 rounded-full p-1.5 mr-3 hover:bg-[#979797] hover:bg-opacity-20 cursor-pointer">
 				<MicrophoneVariant fillColor="#CCCCCC" :size="21" />
 			</div>
 
-			<div class=" rounded-full p-1.5 mr-3 hover:bg-[#979797] hover:bg-opacity-20">
+			<div class=" rounded-full p-1.5 mr-3 hover:bg-[#979797] hover:bg-opacity-20 cursor-pointer">
 				<HeartOutline fillColor="#CCCCCC" :size="21" />
 			</div>
 
 
-			<div class=" rounded-full p-1.5 mr-3 hover:bg-[#979797] hover:bg-opacity-20">
+			<div class=" rounded-full p-1.5 mr-3 hover:bg-[#979797] hover:bg-opacity-20 cursor-pointer">
 				<DotsHorizontal fillColor="#CCCCCC" :size="21" />
 			</div>
 
